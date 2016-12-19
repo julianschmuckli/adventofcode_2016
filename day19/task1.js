@@ -1,6 +1,6 @@
 var input = 3018458;
 	
-	var presents = [],hasWinner=true,chance=1,last_elf=input-1,times=0;
+	var presents = [],times=0,skip=5000;
 	console.log("Giving Presents...");
 	for(var i = 0;i<input;i++){
 		presents.push(1);
@@ -12,13 +12,15 @@ var input = 3018458;
 			if(presents[i]!=0){
 				var next = findNextElf(i);
 				if(next==i){
+					console.log("Found elf: "+(i+1));
 					break whole;
 				}
 				presents[i]+=presents[next];
 				presents[next]=0;
 				
-				if(times>=50000){
-					console.log("Preparing: Elf "+i+" stole Elf "+next);
+				if(times>=skip){
+					console.log("Elf "+i+" stole Presents from Elf "+next);
+					console.log("Skipped next "+skip+" to increase processspeed.");
 					times=0;
 				}
 				next=0;
