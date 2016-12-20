@@ -18,7 +18,6 @@ for(var i=0;i<columns;i++){
 console.log(solution_code);
 
 function addChar(chr){
-	chr=chr+"";
 	console.log(chr);
 	if(characters[chr]==undefined){
 		characters[chr]=1;
